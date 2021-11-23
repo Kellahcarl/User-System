@@ -14,6 +14,9 @@ const config = {
 
 
 mssql.connect(config).then(pool=>{
+  if(pool.connecting){
+    console.log('connecting to db')
+  }
   if(pool.connected){
     console.log('connected')
   }

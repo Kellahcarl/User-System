@@ -17,7 +17,7 @@ function RegisterPage() {
    const handleSubmit = async (event) => {
         event.preventDefault();
 
-        await axios.post('http://localhost:8080/api/users/signup',{
+        await axios.post('http://localhost:8000/api/users/signup',{
         firstname:data.firstname,
         lastname:data.lastname,
         email:data.email,
@@ -40,6 +40,7 @@ function RegisterPage() {
         regDetails[e.target.name] = e.target.value
 
         setData(regDetails)
+        console.log(data)
     }
 
     return (

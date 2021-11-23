@@ -4,9 +4,6 @@ const jwt = require("jsonwebtoken");
 const _ = require('lodash');
 
 const db = require('../database');
-
-const sql= require('mssql')
-const config= require('../config/index')
 const encryptPassword = require('../helpers');
 
 const signUpHandler = async (req, res) => {
@@ -68,17 +65,9 @@ const signInHandler = async (req, res) => {
 
 const getUsersHandler = async (req, res) => {
 
-  try {
-    
-    let pool= await sql.connect(config)
- let user = await pool.request().query(`SELECT * FROM [normalUsers].[users]`);
+  const { recordset } = await db.query(`SELECT * FROM [normalUsers].[users];`);
   
-  res.send(user.recordset[0]);
-  console.log(user.recordset[0]);
-
-  } catch (error) {
-    console.log(error)
-  }
+  res.send({ recordset });
 
 }
 
