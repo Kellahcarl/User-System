@@ -6,7 +6,7 @@ import LoginPage from './components/pages/LoginPage'
 import RegisterPage from './components/pages/RegisterPage'
 import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
-import Header from './components/header/';
+import Header from './components/header/header.component'
 
 import './App.css'
 
@@ -22,26 +22,7 @@ export default function App() {
                     <Route path="/forget-password" component={ ForgetPasswordPage } />
                     <Route path="/home" component={ HomePage } />
                 </Switch>
-                <Footer />
             </div>
         </Router>
     )
-}
-
-const Footer = () => {
-    return (
-        <p className="text-center" style={ FooterStyle }>Designed & coded by caleb baraka</p>
-    )
-}
-
-const FooterStyle = {
-    background: "#222",
-    fontSize: ".8rem",
-    color: "#fff",
-    position: "absolute",
-    bottom: 0,
-    padding: "1rem",
-    margin: 0,
-    width: "100%",
-    opacity: ".5"
 }
