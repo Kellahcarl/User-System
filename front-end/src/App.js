@@ -6,6 +6,7 @@ import LoginPage from './components/pages/LoginPage'
 import RegisterPage from './components/pages/RegisterPage'
 import ForgetPasswordPage from './components/pages/ForgetPasswordPage'
 import HomePage from './components/pages/HomePage'
+import Header from './components/header/';
 
 import './App.css'
 
@@ -13,6 +14,7 @@ export default function App() {
     return (
         <Router>
             <div>
+            <Header />
                 <Switch>
                     <Route exact path="/" component={ LandingPage } />
                     <Route path="/login" component={ LoginPage } />
@@ -28,7 +30,7 @@ export default function App() {
 
 const Footer = () => {
     return (
-        <p className="text-center" style={ FooterStyle }>Designed & coded by <a href="https://izemspot.netlify.com" target="_blank" rel="noopener noreferrer">IZEMSPOT</a></p>
+        <p className="text-center" style={ FooterStyle }>Designed & coded by caleb baraka</p>
     )
 }
 

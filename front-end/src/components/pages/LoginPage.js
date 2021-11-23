@@ -1,16 +1,45 @@
-import React from 'react'
+import React , { Component } from 'react'
 import { Link } from 'react-router-dom'
 
 import '../../App.css'
 
-export default function SignInPage() {
+export default class SignInPage extends Component {
+
+constructor(props) {
+    super(props);
+
+    this.state ={
+        email:'',
+        password:''
+    }
+}
+
+handleSubmit = (event) => {
+    event.preventDefault();
+
+        this.setState({email:'', password:'' })
+}
+
+handleChange =(event) => {
+    const { value , name } = event.target;
+
+    this.setState({ [name]: value})
+}
+
+render() {
     return (
         <div className="text-center m-5-auto">
-            <h2>Sign in to us</h2>
-            <form action="/home">
+            <h2>
+                i already have an account
+            </h2>
+            <span> 
+                Sign in with your email and password
+            </span>
+
+            <form onSubmit={this.handleSubmit}>
                 <p>
                     <label>Username or email address</label><br/>
-                    <input type="text" name="first_name" required />
+                    <input type="text" name="email" required />
                 </p>
                 <p>
                     <label>Password</label>
@@ -27,5 +56,6 @@ export default function SignInPage() {
                 <p><Link to="/">Back to Homepage</Link>.</p>
             </footer>
         </div>
-    )
+        )
+    }
 }
