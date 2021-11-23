@@ -1,4 +1,5 @@
 require('dotenv').config();
+const mssql=require('mssql')
 
 const config = {
   server: process.env.DB_SERVER,
@@ -10,5 +11,13 @@ const config = {
     enableArithAbort: true
   }
 }
+
+
+mssql.connect(config).then(pool=>{
+  if(pool.connected){
+    console.log('connected')
+  }
+})
+
 
 module.exports = config;

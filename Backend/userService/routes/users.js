@@ -8,7 +8,7 @@ const { signInHandler, signUpHandler, putUsersHandler, forgotPasswordHandler, ge
 
 router.post('/login', signInHandler);
 router.post('/signup', signUpHandler);
-router.get('/get-all-users', verifyToken, getUsersHandler);
+router.get('/get-all-users', getUsersHandler);
 router.post('/update-a-user/:userID', verifyToken, putUsersHandler)
 
 module.exports = router;

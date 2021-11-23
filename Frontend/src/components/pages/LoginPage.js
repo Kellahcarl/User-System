@@ -14,20 +14,15 @@ constructor(props) {
     }
 }
 
-handleSubmit = (event) => {
+handleSubmit = async (event) => {
     event.preventDefault();
 
-        this.setState({email:'', password:'' })
+    this.setState({email:'', password:'' })
 }
 
-handleChange =(event) => {
-    const { value , name } = event.target;
-
-    this.setState({ [name]: value})
-}
-
-render() {
-    return (
+render(){
+    const { email ,password } = this.state
+    return(
         <div className="text-center m-5-auto">
             <h2>
                 i already have an account
@@ -39,13 +34,13 @@ render() {
             <form onSubmit={this.handleSubmit}>
                 <p>
                     <label>Username or email address</label><br/>
-                    <input type="text" name="email" required />
+                    <input type="text" name="email" value= {email} required />
                 </p>
                 <p>
                     <label>Password</label>
                     <Link to="/forget-password"><label className="right-label">Forget password?</label></Link>
                     <br/>
-                    <input type="password" name="password" required />
+                    <input type="password" name="password" value= {password} required />
                 </p>
                 <p>
                     <button id="sub_btn" type="submit">Login</button>
