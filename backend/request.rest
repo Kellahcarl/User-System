@@ -1,0 +1,3 @@
+GET http://localhost:8080/api/users/as
+
+Authorization : Bearer "dkcjdsc"
